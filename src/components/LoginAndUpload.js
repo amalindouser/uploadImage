@@ -227,6 +227,29 @@ const LoginAndUpload = () => {
           <Button onClick={handleLogout} colorScheme="red">
             Logout
           </Button>
+
+          
+          <Box mt={4}>
+            <Button
+              as={Link}
+              href="https://docs.google.com/spreadsheets/d/1i_39vViXZ0vgckEZgtzebWEwDHolqHGGbr0Wm8lCXOQ/edit?usp=sharing"
+              mt={2}
+              colorScheme="green"
+              isExternal
+            >
+              Go to Spreadsheet
+            </Button>
+            <Button
+              marginLeft={9}
+              as={Link}
+              href="https://vnd-ceper.vercel.app/"
+              mt={2}
+              colorScheme="blue"
+              isExternal
+            >
+              Go to Website
+            </Button>
+          </Box>
         </>
       )}
     </VStack>
