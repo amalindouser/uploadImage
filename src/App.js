@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { Box, Heading } from '@chakra-ui/react';
+import Login from './components/Login';
+import UploadImage from './components/UploadImage';
 
-function App() {
+const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userEmail, setUserEmail] = useState('');
+
+  const handleLogin = (email) => {
+    setIsLoggedIn(true);
+    setUserEmail(email);
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setUserEmail('');
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box className="App" textAlign="center" p={4} width="100%" display="flex" justifyContent="center" alignItems="center" minHeight="100vh">
+      <Box width="50%">
+        <Heading as="h1" mb={4}>Welcome to VND Ceper Industries</Heading>
+        {!isLoggedIn ? (
+          <Login onLogin={handleLogin} isLoggedIn={isLoggedIn} />
+        ) : (
+          <UploadImage userEmail={userEmail} onLogout={handleLogout} />
+        )}
+      </Box>
+    </Box>
   );
-}
+};
 
 export default App;
