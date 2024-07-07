@@ -1,4 +1,3 @@
-// src/components/UploadImage.js
 import React, { useState, useEffect } from "react";
 import { ref, uploadBytes, getDownloadURL, listAll, deleteObject } from "firebase/storage";
 import { storage } from "../firebase";
@@ -58,7 +57,6 @@ const UploadImage = () => {
         })
         .then((downloadURL) => {
           setUrl(downloadURL);
-          console.log("File available at", downloadURL);
           fetchFileList(); // Refresh daftar file setelah upload
           toast({
             title: "Upload Successful",
@@ -121,7 +119,7 @@ const UploadImage = () => {
           <Link href={url} isExternal color="teal.500">
             {url}
           </Link>
-          <Image src={url} alt="Uploaded" boxSize="100px" mt={2} />
+          <Image src={url} alt="Uploaded" boxSize="100%" maxH="300px" mt={2} objectFit="cover" />
           <Button onClick={onCopy} mt={2} colorScheme="blue">
             {hasCopied ? "Copied" : "Copy URL"}
           </Button>

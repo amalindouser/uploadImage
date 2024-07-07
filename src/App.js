@@ -18,8 +18,8 @@ const App = () => {
   };
 
   return (
-    <Box className="App" textAlign="center" p={4} width="100%" display="flex" justifyContent="center" alignItems="center" minHeight="100vh">
-      <Box width="50%">
+    <Box className="App" textAlign="center" p={4} minHeight="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
+      <Box width={{ base: '90%', md: '50%' }}>
         <Heading as="h1" mb={4}>Welcome to VND Ceper Industries</Heading>
         {!isLoggedIn ? (
           <Login onLogin={handleLogin} isLoggedIn={isLoggedIn} />
